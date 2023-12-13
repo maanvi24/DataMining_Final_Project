@@ -8,6 +8,12 @@ import os
 import joblib
 import yfinance as yf
 
+# Function to generate HTML for the DataFrame with a clickable link
+def generate_html_with_link(df):
+    df_copy = df.copy()
+    df_copy["URL"] = df_copy["URL"].apply(lambda x: f'<a href="{x}" target="_blank">Open Article</a>')
+    return df_copy.to_html(escape=False, index=False, render_links=True)
+
 # Styling
 st.markdown("""
     <style>
@@ -114,7 +120,7 @@ if st.button('Get Articles'):
 
                     # Make a print statement stating that prices were collected
                     if article_price_open_stock != 'NA' and article_price_close_stock != 'NA':
-                        print(f"For article on {formatted_date}, stock movement is available.")
+                        print(f"For the article on {formatted_date}, stock movement is available.")
 
                     # Calculate movement of the stock between article_price_open_stock and article_price_close_stock
                     if formatted_date >= today or formatted_date == (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"):
@@ -144,7 +150,7 @@ if st.button('Get Articles'):
                         "Actual": actual,
                         "Open Price": article_price_open_stock,
                         "Close Price": article_price_close_stock,
-                        "URL":  f'<a href="{article_url}" target="_blank">Open Article</a>'  # Create a clickable link with the text "Open Article"
+                        "URL":  article_url  # Store the URL directly
                     }
 
                     # Append into stock data
@@ -173,10 +179,7 @@ if st.button('Get Articles'):
             )
 
             # Update the st.write statement to display the modified DataFrame with a clickable link
-            markdown_table = df.to_markdown(escape=False, index=False)
-            st.markdown(markdown_table, unsafe_allow_html=True)
-
-
+            st.write(generate_html_with_link(df), unsafe_allow_html=True)
 
             # Add a button for downloading the table as an Excel file
             if st.button('Download Table as Excel'):
