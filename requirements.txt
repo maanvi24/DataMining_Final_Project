@@ -1,5 +1,6 @@
 bs4
 joblib
-summarizer
+bert-extractive-summarizer
 yfinance
-ibmlearn
+imbalanced-learn
+
