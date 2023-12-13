@@ -173,7 +173,9 @@ if st.button('Get Articles'):
             )
 
             # Update the st.write statement to display the modified DataFrame with a clickable link
-            st.dataframe(df)
+            markdown_table = df.to_markdown(escape=False, index=False)
+            st.markdown(markdown_table, unsafe_allow_html=True)
+
 
 
             # Add a button for downloading the table as an Excel file
