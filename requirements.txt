@@ -1,4 +1,4 @@
-streamlit
+streamlit== 1.27.0
 bs4
 joblib
 bert-extractive-summarizer==0.10.1
