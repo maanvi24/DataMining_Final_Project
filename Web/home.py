@@ -12,24 +12,24 @@ import streamlit as st
 
 st.markdown("<h1 style='text-align: center;'>Stock Prediction App</h1>", unsafe_allow_html=True)
 # Page title
-
-
-
-# Key Features section
-st.subheader("Key Features:")
-st.markdown("- **Sentiment Analysis:** Understand the emotional tone in the stock-related content.")
-st.markdown("- **Relevance Scores:** Evaluate the importance of the information.")
-st.markdown("- **Stock Price Prediction:** Get insights into whether the stock prices will go up or down, backed by prediction scores.")
-
-# Live Feed section
-st.subheader("Live Feed:")
-st.markdown("Experience real-time stock news and predictions. Track the accuracy of our forecasts compared to actual market movements from seven days ago.")
-
-# Summary Page section
-st.subheader("Summary Page:")
-st.markdown("Simplify intricate stock data with our powerful Summary Page, offering a quick overview of complex information.")
-
-# Platform goal and closing statement
 st.markdown("""
 We strive to make stock market insights easy and accessible for everyone. Explore our platform to make informed decisions in the dynamic world of stocks!
 """)
+
+# Instructions
+st.subheader("Instructions to use the App:")
+
+#Prediction 
+st.markdown("- **Prediction Page:**")
+st.markdown("Input an article and press predict to know if the stock will go up or not")
+st.markdown("You will also get other relevant information such as the likelihood of the stock going up or down, sentiment score to understand the tone of the article and a score that tells the relevance of the article to a certain field like technology,etc")
+
+# Live Feed section
+st.subheader("Live Feed Page:")
+st.markdown("Input a stock ticker of your choice for example AAPL( Apple Stock) and duration to get all the relevant articles and some more useful information.")
+
+# Summary Page section
+st.subheader("Summary Page:")
+st.markdown("Input an article and the desired length to get a quick overview of complex information.")
+
+
